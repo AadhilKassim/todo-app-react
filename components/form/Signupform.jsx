@@ -21,8 +21,8 @@ const Signupform = (props) => {
       password: psswrd
     };
 
-    axios.post("http://localhost:8888/signup", data).then((response) => {
-      
+    axios.post("https://node-next-five.vercel.app/signup", data).then((response) => {
+
     });
   }
 
