@@ -1,4 +1,5 @@
 import Signupform from '@/components/form/Signupform'
+import NavBar from '@/components/navigation/NavBar'
 import Head from 'next/head'
 import React from 'react'
 
@@ -11,7 +12,11 @@ const signup = () => {
                 <link rel="icon" href="/favicon.ico" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <Signupform />
+            <NavBar />
+            <div style={{ maxWidth: '400px', margin: '0 auto', padding: '20px' }}>
+
+                <Signupform />
+            </div>
         </>
     )
 }

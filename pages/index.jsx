@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Link from "next/link";
+import NavBar from "@/components/navigation/NavBar";
 
 export default function Home() {
   return (
@@ -11,11 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div>
-        <Link href="/">Home</Link> |{" "}
-        <Link href="/Login">Login</Link> |{" "}
-        <Link href="/signup">Sign Up</Link>
-      </div>
+      <NavBar />
     </>
   );
 }

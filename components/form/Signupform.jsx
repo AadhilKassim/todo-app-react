@@ -21,7 +21,19 @@ const Signupform = (props) => {
       password: psswrd
     };
 
-    axios.post("http://localhost:8888/signup", data);
+    axios.post("http://localhost:8888/signup", data).then((response) => {
+      
+    });
+  }
+
+  function handlePassword(psswrd) {
+    if (psswrd === "") {
+      alert("Please fill in the password");
+    } else if (psswrd.length < 8) {
+      alert("Password must be at least 8 characters long");
+    }else {
+      alert(`Welcome ${name}, you have successfully signed up!`);
+    }
   }
 
   return (
@@ -33,37 +45,34 @@ const Signupform = (props) => {
 
       <form onSubmit={(e) => { registerUser(e) }}>
 
-      <div>
-        <input
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name" />
-      </div>
-      <br></br>
-      <div>
-        <input
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email" />
-      </div>
-      <br></br>
-      <div>
-        <input
-          type="password"
-          onChange={(e) => setPsswrd(e.target.value)}
-          placeholder="Enter Password" />
-      </div>
-      <button type='Submit' onClick={() => {
-        if (psswrd.length < 8) {
-          alert("Password must be at least 8 characters long");
-        } else {
-          alert(`Welcome ${name}, you have successfully signed up!`);
-        }
-      }}>Sign Up</button>
-      <div>
-        <p>Already a user? <a href='/Login'>Login</a></p>
-      </div>
+        <div align="center">
+          <input
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name" />
+          <br></br>
+          <br />
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email" />
+          <br></br>
+          <br />
+          <input
+            type="password"
+            onChange={(e) => setPsswrd(e.target.value)}
+            placeholder="Enter Password" />
+          <br />
+          <br/>
+          <button class = 'Submit' type='Submit' onClick={(psswrd) => {
+            handlePassword(psswrd);
+          }}>Sign Up</button>
+        </div>
       </form>
+      <br/>
+        <div>
+          <p>Already a user? <a href='/Login'>Login</a></p>
+        </div>
     </>
   );
 }
