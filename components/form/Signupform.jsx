@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { config } from 'next/dist/build/templates/pages';
 
 
 const Signupform = (props) => {
@@ -13,11 +12,11 @@ const Signupform = (props) => {
 
   const [email, setEmail] = useState("");
 
-  console.log("Email:", email);
 
   function registerUser(e) {
     e.preventDefault();
     const data = {
+      name: name, // include name in the request
       email: email,
       password: psswrd
     };
@@ -34,7 +33,6 @@ const Signupform = (props) => {
 
       <form onSubmit={(e) => { registerUser(e) }}>
 
-      </form>
       <div>
         <input
           type="text"
@@ -65,6 +63,7 @@ const Signupform = (props) => {
       <div>
         <p>Already a user? <a href='/Login'>Login</a></p>
       </div>
+      </form>
     </>
   );
 }
